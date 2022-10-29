@@ -1,0 +1,191 @@
+*,::after,::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --Soft-red: rgb(236, 119, 95);
+    --Cyan: hsl(186, 34%, 60%);
+    --Dark-brown: hsl(25, 47%, 15%);
+    --Medium-brown: hsl(28, 10%, 53%);
+    --Cream: hsl(27, 66%, 92%);
+    --Very-pale-orange: hsl(33, 100%, 98%);
+}
+
+body{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:var(--Cream) ;
+  font-size: 18px;
+  font-family: 'DM Sans', sans-serif;
+
+}
+
+.Expenses-chart{
+    width: 500px;
+}
+
+@media(max-width:767px){
+    .Expenses-chart{
+        width: 300px;
+    }
+  
+}
+.head{
+    padding: 10px 15px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--Soft-red);
+    margin-bottom: 20px;
+}
+
+.head .left h5{
+    color: var(--Very-pale-orange);
+    margin-bottom: 5px;
+    
+}
+
+.head .left p{
+    color:#fff;
+    margin-bottom: 5px;
+    font-size: 30px;
+}
+
+.head .circle{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--Dark-brown);
+    position: relative;
+}
+
+.head .circle::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    top: 0;
+    left: -50%;
+    border: 2px solid #fff;
+
+}
+
+.body{
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+
+}
+
+.body h2{
+    margin-bottom: 20px;
+}
+
+.body .charts{
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap:15px;
+  height: 200px;
+  padding-bottom: 50px;
+  border-bottom: 1px solid var(--Medium-brown);
+}
+
+.body .charts > div{
+    width: 50px;
+    border-radius: 5px;
+    background-color: var(--Soft-red);
+    transition: .5s;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .body .charts > div:hover{
+   background-color:rgba(236, 119, 95,.8) ;
+  }
+
+  .body .charts > div:hover::after{
+     opacity: 1;
+
+   }
+ 
+
+  .body .charts > div::after{
+    position: absolute;
+    content: attr(data-percentage);
+    width: 120%;
+    left:-10%;
+    top:-35px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: var(--Dark-brown);
+    color:#fff;
+    font-size: 14px;
+    opacity: 0;
+    transition: .5s;
+    text-align: center;
+  }
+
+  @media(max-width:767px){
+ 
+    .body .charts > div::after{
+  
+        font-size: 8px;
+    
+      }
+}
+  .body .charts > div::before{
+    position: absolute;
+    content: attr(data-day);
+    width: 100%;
+    bottom:-30px;
+    padding: 5px;
+    color:var(--Medium-brown);
+    font-size: 14px;
+    text-align: center;
+
+
+  }
+
+  .body .bottom{
+    padding: 10px 15px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+  
+.body .bottom .left h5{
+   font-size: 12px;
+    margin-bottom: 5px;
+    color:var(--Medium-brown)
+    
+}
+
+.body .bottom .left p{
+    color: var(--Dark-brown);
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.body .bottom .right p{
+ 
+     margin-bottom: 5px;
+     color:var(--Dark-brown);
+     text-align: right;
+     
+ }
+ 
+ .body .bottom .right span{
+    color:var(--Medium-brown)
+
+ 
+ }
+ 
